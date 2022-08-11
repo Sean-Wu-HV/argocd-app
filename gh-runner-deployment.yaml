@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gh-runner
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: gh-runner
+  template:
+    metadata:
+      labels:
+        app: gh-runner
+    spec:
+      containers:
+      - name: guestbook-ui
+        image: myoung34/github-runner:latest
+        env:
+         - name: REPO_URL
+           value: "https://github.com/Sean-Wu-HV/pdi-monitoring-plugin"
+         - name: RUNNER_NAME
+           value: "k8s-runner"
+         - name: LABELS
+           value: "linux,x64,gpu"
+         - name: RUNNER_TOKEN
+           value: 
+      volumes:
+      - name: dind
+        hostPath::
+          path: 
