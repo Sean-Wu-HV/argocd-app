@@ -17,15 +17,7 @@ spec:
       - name: guestbook-ui
         image: myoung34/github-runner:latest
         env:
-         - name: REPO_URL
-           value: "https://github.com/Sean-Wu-HV/pdi-monitoring-plugin"
          - name: RUNNER_NAME
            value: "k8s-runner"
          - name: LABELS
            value: "linux,x64,gpu"
-         - name: RUNNER_TOKEN
-           value: 
-      volumes:
-      - name: dind
-        hostPath::
-          path: 
